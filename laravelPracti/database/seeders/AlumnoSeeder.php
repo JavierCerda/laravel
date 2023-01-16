@@ -17,9 +17,9 @@ class AlumnoSeeder extends Seeder
 
     {
         DB::table('alumnos')->insert([ 
-            ['nombre'=>"javier",'telf'=>"644727350",'edad'=>20,'contraseña'=>"123",'correo'=>"javiercerdaibaez@gmail.com",'sexo'=>"hombre"],
-            ['nombre'=>"fran",'telf'=>"654564654",'edad'=>19,'contraseña'=>"321",'correo'=>"fran@gmail.com",'sexo'=>"mujer"],
-            ['nombre'=>"vicente",'telf'=>"234234324",'edad'=>20,'contraseña'=>"234",'correo'=>"234fsdfsff@gmail.ocm",'sexo'=>"mujer"]
+            ['nombre'=>"javier",'telf'=>"644727350",'edad'=>20,'contrasena'=>"123",'correo'=>"javiercerdaibaez@gmail.com",'sexo'=>"hombre", "aula_id"=>1],
+            ['nombre'=>"fran",'telf'=>"654564654",'edad'=>19,'contrasena'=>"321",'correo'=>"fran@gmail.com",'sexo'=>"mujer","aula_id"=>1],
+            ['nombre'=>"vicente",'telf'=>"234234324",'edad'=>20,'contrasena'=>"234",'correo'=>"234fsdfsff@gmail.ocm",'sexo'=>"mujer","aula_id"=>3]
 
 
         ]);

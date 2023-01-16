@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumnos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 class AlumnoController extends Controller
 {
@@ -32,8 +34,8 @@ class AlumnoController extends Controller
             'nombre' => 'required|string|max:32',
             'telf' => 'nullable|string|max:16',
             'edad' => 'nullable|integer',
-            'contraseña' => 'required|string|max:64',
-            'correo' => 'nullable|email:rfc|max:64',
+            'contrasena' => 'required|string|max:64',
+            'correo' => 'email:rfc|max:64',
             'sexo' => 'nullable|string|max:16',
         ]);
 
@@ -61,12 +63,33 @@ class AlumnoController extends Controller
             'nombre' => 'string|max:32',
             'telf' => 'string|max:16',
             'edad' => 'integer',
-            'contraseña' => 'string|max:64',
+            'contrasena' => 'string|max:64',
             'correo' => 'email:rfc|max:64',
             'sexo' => 'string|max:16',
         ]);
 
         DB::table('alumnos')->where('id', $request->id)->update($datos);
+    }
+
+    public function beca(Request $request) {
+        $alumno = Alumnos::find($request->id)->beca;
+
+        $response = [
+            'success' => true,
+            'message' => 'Esta es la beca del alumno',
+            'data' => $alumno,
+        ];
+        return response()->json($response);
+    }
+    public function aula(Request $request) {
+        $aula = Alumnos::find($request->id)->aula;
+
+        $response = [
+            'success' => true,
+            'message' => 'Esta es la aula del alumno',
+            'data' => $aula,
+        ];
+        return response()->json($response);
     }
     
 }

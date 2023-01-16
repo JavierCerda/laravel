@@ -16,12 +16,15 @@ return new class extends Migration
         Schema::create('alumnos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedBigInteger('aula_id');
             $table->string("nombre", 32);
             $table->string("telf", 12)->nullable();
             $table->unsignedInteger("edad")->nullable();
-            $table->string("contraseña", 64);
+            $table->string("contrasena", 64);
             $table->string("correo", 64)->unique()->nullable();
             $table->string("sexo", 16)->nullable();
+            $table->foreign('aula_id')->references('id')->on('aulas');
+
         });
     }
 
