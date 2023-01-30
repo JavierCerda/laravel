@@ -53,6 +53,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'validar.token' =>\App\Http\Middleware\ValidateToken::class,
         'validate.id'=> \App\Http\Middleware\ValidarId::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

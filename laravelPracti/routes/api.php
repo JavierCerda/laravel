@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\AulaController;
 use App\Http\Controllers\BecaController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,3 +49,8 @@ Route::prefix('/beca')->group(function() {
     Route::middleware('validate.id')->patch('/{id}', [BecaController::class, 'update']);
     //el patch lo que hace es que actualiza solo el valor introducido
 });
+
+Route::post('/login', [LoginController::class, 'login']);
+Route::middleware('validar.token')->get('/me', [LoginController::class, 'whoAmi']);
+Route::middleware('validar.token')->get('/logout', [LoginController::class, 'logOut']);
+Route::get('/home', [LoginController::class, 'home']);
