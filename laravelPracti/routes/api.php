@@ -49,7 +49,7 @@ Route::prefix('/beca')->group(function() {
     Route::middleware('validate.id')->patch('/{id}', [BecaController::class, 'update']);
     //el patch lo que hace es que actualiza solo el valor introducido
 });
-
+Route::post('/register', [LoginController::class, 'register']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::middleware('validar.token')->get('/me', [LoginController::class, 'whoAmi']);
 Route::middleware('validar.token')->get('/logout', [LoginController::class, 'logOut']);

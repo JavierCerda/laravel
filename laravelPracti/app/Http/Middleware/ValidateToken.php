@@ -22,7 +22,7 @@ class ValidateToken
             'message' => "Usuario no logeado",
             'data' => null,
         ];
-        if (Auth::guard('sanctum')->check()) {
+        if (Auth::guard('api')->check()) {
             return $next($request);
         }
         return response($response , 401);
